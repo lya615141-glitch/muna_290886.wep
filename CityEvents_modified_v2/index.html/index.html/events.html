@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>دليل فعاليات المدينة | City Events Guide</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<style>
+    body { font-family: 'Tajawal', sans-serif; }
+    .hero { background: linear-gradient(135deg, #e3f2fd, #bbdefb); padding: 80px 0; }
+    .flag { width: 32px; height: 22px; cursor: pointer; border: 1px solid #ccc; border-radius: 3px; }
+    .team-img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 2px solid #007bff; }
+  
+  /* Dark mode overrides */
+  body.theme-dark .hero { background: linear-gradient(135deg, #0f0f0f, #1a1a1a) !important; }
+  body.theme-dark .bg-light { background-color: #1e1e1e !important; }
+  body.theme-dark .modal-content { background-color: #2a2a2a; color: #fff; }
+  body.theme-dark .form-control, body.theme-dark .form-select { background-color: #2a2a2a; color: #fff; border-color: #444; }
+  body.theme-dark .btn-outline-primary { color: #fff; border-color: #6ea8fe; }
+  body.theme-dark a { color: #9ec1ff; }
+</style>
+            
+<style>.card img{height:160px;object-fit:cover;}
+  /* Dark mode overrides */
+  body.theme-dark .hero { background: linear-gradient(135deg, #0f0f0f, #1a1a1a) !important; }
+  body.theme-dark .bg-light { background-color: #1e1e1e !important; }
+  body.theme-dark .modal-content { background-color: #2a2a2a; color: #fff; }
+  body.theme-dark .form-control, body.theme-dark .form-select { background-color: #2a2a2a; color: #fff; border-color: #444; }
+  body.theme-dark .btn-outline-primary { color: #fff; border-color: #6ea8fe; }
+  body.theme-dark a { color: #9ec1ff; }
+</style>
+            
+
+<style id="theme-vars">
+  :root{
+    --bg-color: inherit;
+    --text-color: inherit;
+    --card-bg: inherit;
+    --card-text: inherit;
+    --muted-text: inherit;
+  }
+  body.theme-dark{
+    --bg-color: #121212;
+    --text-color: #f2f2f2;
+    --card-bg: #3a3a3a;   /* رمادي غير غامق كثير */
+    --card-text: #ffffff;
+    --muted-text: #d0d0d0;
+  }
+  body{
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+  body.theme-dark .navbar{
+    background-color: #000 !important;
+  }
+  body.theme-dark .card{
+    background-color: var(--card-bg);
+    color: var(--card-text);
+  }
+  body.theme-dark .text-muted{
+    color: var(--muted-text) !important;
+  }
+
+  /* Dark mode overrides */
+  body.theme-dark .hero { background: linear-gradient(135deg, #0f0f0f, #1a1a1a) !important; }
+  body.theme-dark .bg-light { background-color: #1e1e1e !important; }
+  body.theme-dark .modal-content { background-color: #2a2a2a; color: #fff; }
+  body.theme-dark .form-control, body.theme-dark .form-select { background-color: #2a2a2a; color: #fff; border-color: #444; }
+  body.theme-dark .btn-outline-primary { color: #fff; border-color: #6ea8fe; }
+  body.theme-dark a { color: #9ec1ff; }
+</style>
+            
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+<div class="container">
+<a class="navbar-brand fw-bold text-light" href="index.html" id="brand">دليل فعاليات المدينة</a>
+<div class="d-flex align-items-center ms-auto">
+</div>
+
+<div class="d-flex align-items-center ms-3" id="mood-toggle">
+  <span class="me-2 fw-bold text-light">mood</span>
+  <button type="button" class="btn btn-light p-0 rounded-circle mx-1" id="light-mode" style="width:28px;height:28px;line-height:28px;">☀️</button>
+  <button type="button" class="btn btn-light p-0 rounded-circle mx-1" id="dark-mode"  style="width:28px;height:28px;line-height:28px;">🌙</button>
+</div>
+
+<button class="navbar-toggler" data-bs-target="#navMenu" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navMenu">
+<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+<li class="nav-item"><a class="nav-link" href="index.html" id="nav-home">الرئيسية</a></li>
+<li class="nav-item"><a class="nav-link" href="events.html" id="nav-events">الفعاليات</a></li>
+<li class="nav-item"><a class="nav-link" href="about.html" id="nav-about">عن الدليل</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html" id="nav-contact">اتصل بنا</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main class="container py-5">
+<h1 class="text-center mb-4" id="page-title">كل الفعاليات</h1>
+<div class="d-flex justify-content-center gap-2 mb-4">
+<button class="btn btn-primary filter-btn" id="filter-all">الكل</button>
+<button class="btn btn-outline-primary filter-btn" data-category="culture" id="filter-culture">ثقافة</button>
+<button class="btn btn-outline-primary filter-btn" data-category="sports" id="filter-sports">رياضة</button>
+<button class="btn btn-outline-primary filter-btn" data-category="music" id="filter-music">موسيقى</button>
+</div>
+<div class="row g-4" id="events-grid">
+<div class="col-sm-6 col-lg-4" data-category="culture">
+<div class="card h-100">
+<div class="card-body">
+<h5 class="card-title">معرض فنون معاصرة</h5><img alt="معرض فنون معاصرة" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Glazunov-exhibition2010Manezh1.JPG/800px-Glazunov-exhibition2010Manezh1.JPG" style="width:100%;height:auto;display:block;"/>
+<p class="card-text small text-muted mb-2">الخميس، 30 نوفمبر</p>
+<a class="btn btn-primary btn-sm" href="event.html">التفاصيل</a>
+</div>
+</div>
+</div>
+<div class="col-sm-6 col-lg-4" data-category="sports">
+<div class="card h-100">
+<div class="card-body">
+<h5 class="card-title">ماراثون المدينة</h5><img alt="ماراثون المدينة" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/BSK_CSOB_MARATON046_%2833791445325%29.jpg/800px-BSK_CSOB_MARATON046_%2833791445325%29.jpg" style="width:100%;height:auto;display:block;"/>
+<p class="card-text small text-muted mb-2">السبت، 2 ديسمبر</p>
+<a class="btn btn-primary btn-sm" href="event.html">التفاصيل</a>
+</div>
+</div>
+</div>
+<div class="col-sm-6 col-lg-4" data-category="music">
+<div class="card h-100">
+<div class="card-body">
+<h5 class="card-title">حفل موسيقي حي</h5><img alt="حفل موسيقي حي" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Weezer_Bethlehem_2019_5.jpg/800px-Weezer_Bethlehem_2019_5.jpg" style="width:100%;height:auto;display:block;"/>
+<p class="card-text small text-muted mb-2">الجمعة، 8 ديسمبر</p>
+<a class="btn btn-primary btn-sm" href="event.html">التفاصيل</a>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="bg-primary text-light text-center py-3 mt-5">
+<p class="mb-0" id="footer-text">©️ 2025 دليل فعاليات المدينة | جميع الحقوق محفوظة</p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/i18n.js"></script>
+<script>
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('#events-grid > div');
+  function setActive(btn){
+    filterButtons.forEach(b=>b.classList.remove('active','btn-primary'));
+    filterButtons.forEach(b=>b.classList.add('btn-outline-primary'));
+    btn.classList.add('active','btn-primary');
+    btn.classList.remove('btn-outline-primary');
+  }
+  filterButtons.forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const cat = btn.getAttribute('data-category');
+      setActive(btn);
+      cards.forEach(c=>{ c.style.display = (!cat || c.getAttribute('data-category')===cat) ? '' : 'none'; });
+    });
+  });
+</script>
+
+<script id="theme-toggle-script">
+(function(){
+  const apply = (mode)=>{
+    if(mode==='dark'){
+      document.body.classList.add('theme-dark');
+    }else{
+      document.body.classList.remove('theme-dark');
+    }
+  };
+  const saved = localStorage.getItem('mood-theme');
+  if(saved){ apply(saved); }
+  window.addEventListener('DOMContentLoaded', ()=>{
+    const lightBtn = document.getElementById('light-mode');
+    const darkBtn  = document.getElementById('dark-mode');
+    if(lightBtn) lightBtn.addEventListener('click', ()=>{ apply('light'); localStorage.setItem('mood-theme','light'); });
+    if(darkBtn)  darkBtn.addEventListener('click',  ()=>{ apply('dark');  localStorage.setItem('mood-theme','dark');  });
+  });
+})();
+</script>
+
+</body>
+</html>

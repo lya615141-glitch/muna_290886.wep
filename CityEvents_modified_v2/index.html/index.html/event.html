@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دليل فعاليات المدينة | City Events Guide</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { font-family: 'Tajawal', sans-serif; }
+    .hero { background: linear-gradient(135deg, #e3f2fd, #bbdefb); padding: 80px 0; }
+    .flag { width: 32px; height: 22px; cursor: pointer; border: 1px solid #ccc; border-radius: 3px; }
+    .team-img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 2px solid #007bff; }
+  
+  /* Dark mode overrides */
+  body.theme-dark .hero { background: linear-gradient(135deg, #0f0f0f, #1a1a1a) !important; }
+  body.theme-dark .bg-light { background-color: #1e1e1e !important; }
+  body.theme-dark .modal-content { background-color: #2a2a2a; color: #fff; }
+  body.theme-dark .form-control, body.theme-dark .form-select { background-color: #2a2a2a; color: #fff; border-color: #444; }
+  body.theme-dark .btn-outline-primary { color: #fff; border-color: #6ea8fe; }
+  body.theme-dark a { color: #9ec1ff; }
+</style>
+            
+
+
+<style id="theme-vars">
+  :root{
+    --bg-color: inherit;
+    --text-color: inherit;
+    --card-bg: inherit;
+    --card-text: inherit;
+    --muted-text: inherit;
+  }
+  body.theme-dark{
+    --bg-color: #121212;
+    --text-color: #f2f2f2;
+    --card-bg: #3a3a3a;   /* رمادي غير غامق كثير */
+    --card-text: #ffffff;
+    --muted-text: #d0d0d0;
+  }
+  body{
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+  body.theme-dark .navbar{
+    background-color: #000 !important;
+  }
+  body.theme-dark .card{
+    background-color: var(--card-bg);
+    color: var(--card-text);
+  }
+  body.theme-dark .text-muted{
+    color: var(--muted-text) !important;
+  }
+
+  /* Dark mode overrides */
+  body.theme-dark .hero { background: linear-gradient(135deg, #0f0f0f, #1a1a1a) !important; }
+  body.theme-dark .bg-light { background-color: #1e1e1e !important; }
+  body.theme-dark .modal-content { background-color: #2a2a2a; color: #fff; }
+  body.theme-dark .form-control, body.theme-dark .form-select { background-color: #2a2a2a; color: #fff; border-color: #444; }
+  body.theme-dark .btn-outline-primary { color: #fff; border-color: #6ea8fe; }
+  body.theme-dark a { color: #9ec1ff; }
+</style>
+            
+
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-light" href="index.html" id="brand">دليل فعاليات المدينة</a>
+
+      <div class="d-flex align-items-center ms-auto">
+        <img src="img/flag-syria.jpg" id="lang-ar" class="flag mx-1" alt="AR" title="العربية">
+        <img src="img/flag-usa.jpg"   id="lang-en" class="flag mx-1" alt="EN" title="English">
+      </div>
+<div class="d-flex align-items-center ms-3" id="mood-toggle">
+  <span class="me-2 fw-bold text-light">mood</span>
+  <button type="button" class="btn btn-light p-0 rounded-circle mx-1" id="light-mode" style="width:28px;height:28px;line-height:28px;">☀️</button>
+  <button type="button" class="btn btn-light p-0 rounded-circle mx-1" id="dark-mode"  style="width:28px;height:28px;line-height:28px;">🌙</button>
+</div>
+
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" id="nav-home" href="index.html">الرئيسية</a></li>
+          <li class="nav-item"><a class="nav-link" id="nav-events" href="events.html">الفعاليات</a></li>
+          <li class="nav-item"><a class="nav-link" id="nav-about" href="about.html">عن الدليل</a></li>
+          <li class="nav-item"><a class="nav-link" id="nav-contact" href="contact.html">اتصل بنا</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<main class="container py-5">
+  <h1 id="details-title" class="text-center mb-4">تفاصيل</h1>
+
+  <div class="row g-4">
+    <div class="col-lg-7">
+      <img src="img/event3.jpg" class="img-fluid rounded mb-3" alt="event image">
+      <p id="label-description" class="text-primary fw-semibold mb-1">الوصف</p>
+      <p>فعالية موسيقية حيّة تجمع فنانين محليين مع أجواء رائعة للجمهور.</p>
+    </div>
+    <div class="col-lg-5">
+      <div class="bg-light p-3 rounded">
+        <p class="mb-1"><span id="label-date" class="fw-semibold">التاريخ:</span> الجمعة، 8 ديسمبر</p>
+        <p class="mb-1"><span id="label-time" class="fw-semibold">الوقت:</span> 7:00 مساءً</p>
+        <p class="mb-3"><span id="label-location" class="fw-semibold">المكان:</span> مسرح المدينة</p>
+        <img src="img/map.jpg" class="img-fluid rounded mb-3" alt="map">
+
+        <div class="d-flex gap-2">
+          <button id="add-to-calendar" class="btn btn-primary btn-sm">أضف للتقويم</button>
+          <button id="share-btn" class="btn btn-outline-primary btn-sm">شارك</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+  <footer class="bg-primary text-light text-center py-3 mt-5">
+    <p id="footer-text" class="mb-0">©️ 2025 دليل فعاليات المدينة | جميع الحقوق محفوظة</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/i18n.js"></script>
+
+<script>
+  document.getElementById('add-to-calendar').addEventListener('click', () => {
+    const ics = "BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nSUMMARY:حفل موسيقي\nDTSTART:20251208T190000\nDTEND:20251208T210000\nLOCATION:مسرح المدينة\nEND:VEVENT\nEND:VCALENDAR";
+    const blob = new Blob([ics], {type: 'text/calendar;charset=utf-8'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'event.ics'; a.click();
+    URL.revokeObjectURL(url);
+  });
+
+  document.getElementById('share-btn').addEventListener('click', async () => {
+    const shareData = { title: 'تفاصيل فعالية', text: 'شاهدي هذه الفعالية الرائعة!', url: location.href };
+    try { if (navigator.share) await navigator.share(shareData); else alert('تم نسخ رابط الفعالية: '+location.href); }
+    catch(e){ console.log(e); }
+  });
+</script>
+
+<script id="theme-toggle-script">
+(function(){
+  const apply = (mode)=>{
+    if(mode==='dark'){
+      document.body.classList.add('theme-dark');
+    }else{
+      document.body.classList.remove('theme-dark');
+    }
+  };
+  const saved = localStorage.getItem('mood-theme');
+  if(saved){ apply(saved); }
+  window.addEventListener('DOMContentLoaded', ()=>{
+    const lightBtn = document.getElementById('light-mode');
+    const darkBtn  = document.getElementById('dark-mode');
+    if(lightBtn) lightBtn.addEventListener('click', ()=>{ apply('light'); localStorage.setItem('mood-theme','light'); });
+    if(darkBtn)  darkBtn.addEventListener('click',  ()=>{ apply('dark');  localStorage.setItem('mood-theme','dark');  });
+  });
+})();
+</script>
+
+</body>
+</html>
